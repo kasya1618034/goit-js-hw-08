@@ -9,3 +9,8 @@ const videoCurrentTime = throttle(data => {
 }, 1000);
 
 player.on('timeupdate', videoCurrentTime);
+
+const VideoStoredTime = localStorage.getItem('videoplayer-current-time');
+if (VideoStoredTime) {
+  player.setCurrentTime(parseFloat(VideoStoredTime));
+}
